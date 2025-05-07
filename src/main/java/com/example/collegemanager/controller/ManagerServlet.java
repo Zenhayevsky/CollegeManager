@@ -1,14 +1,16 @@
 package com.example.collegemanager.controller;
 import com.example.collegemanager.dao.CourseDAO;
-//import com.example.collegemanager.dao.DAOFactory;
 import com.example.collegemanager.dao.RegistrationDAO;
 import com.example.collegemanager.dao.StudentDAO;
+import com.example.collegemanager.dao.TeacherDAO;
 import com.example.collegemanager.dao.impl.CourseDAOImpl;
 import com.example.collegemanager.dao.impl.RegistrationDAOImpl;
 import com.example.collegemanager.dao.impl.StudentDAOImpl;
+import com.example.collegemanager.dao.impl.TeacherDAOImpl;
 import com.example.collegemanager.model.CollegeManager;
 import com.example.collegemanager.model.Course;
 import com.example.collegemanager.model.Student;
+import com.example.collegemanager.model.Teacher;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -35,17 +37,70 @@ public class ManagerServlet extends HttpServlet {
     private StudentDAO studentDAO = new StudentDAOImpl();
     private CourseDAO courseDAO = new CourseDAOImpl();
     private RegistrationDAO registrationDAO = new RegistrationDAOImpl();
+    private TeacherDAO teacherDAO = new TeacherDAOImpl();
 
     @Override
     public void init() throws ServletException {
         // Check if we need to add sample data (if database is empty)
-        if (studentDAO.findAll().isEmpty() && courseDAO.findAll().isEmpty()) {
-            addSampleData();
+        if (studentDAO.findAll().isEmpty()) {
+            addSampleStudents();
         }
+        if (teacherDAO.findAll().isEmpty()) {
+            addSampleTeachers();
+        }
+
+        if (courseDAO.findAll().isEmpty()) {
+            addSampleCourses();
+        }
+
+    }
+
+    private void addSampleStudents() {
+        System.out.println("Adding sample students...");
+        Student alice = new Student(1001, "Alice Smith", "alice@example.com");
+        Student bob = new Student(1002, "Bob Johnson", "bob@example.com");
+        studentDAO.save(alice);
+        studentDAO.save(bob);
+    }
+
+    private void addSampleCourses() {
+        System.out.println("Adding sample courses...");
+        Course javaCourse = new Course("CS101", "Introduction to Java", 3, 2001);
+        Course webDev = new Course("CS201", "Web Development", 4, 2001);
+        Course math = new Course("MATH101", "Calculus I", 4, 2003);
+        courseDAO.save(javaCourse);
+        courseDAO.save(webDev);
+        courseDAO.save(math);
+
+        //Add registration
+        registrationDAO.registerStudentForCourse(1001, "CS101");
+        registrationDAO.registerStudentForCourse(1001, "CS201");
+        registrationDAO.registerStudentForCourse(1002, "CS101");
+        registrationDAO.registerStudentForCourse(1002, "MATH101");
+    }
+
+    private void addSampleTeachers() {
+        System.out.println("Adding sample teachers...");
+        Teacher t1 = new Teacher(2001, "Bobby Conolly", "bobby@example.com", "Information System");
+        Teacher t2 = new Teacher(2002, "Fode Toure", "fode@example.com", "Information System");
+        Teacher t3 = new Teacher(2003, "Alex Salcedo", "alex@example.com", "Math");
+        teacherDAO.save(t1);
+        teacherDAO.save(t2);
+        teacherDAO.save(t3);
+        System.out.println("Sample teachers added successfully!");
+    }
+
+    private void addSampleRegistrations() {
+        System.out.println("Registering sample students to courses...");
+        registrationDAO.registerStudentForCourse(1001, "CS101");
+        registrationDAO.registerStudentForCourse(1001, "CS201");
+        registrationDAO.registerStudentForCourse(1002, "CS101");
+        registrationDAO.registerStudentForCourse(1002, "MATH101");
+        System.out.println("Sample registrations added successfully!");
     }
 
 
-    private void addSampleData() {
+ /*   private void addSampleData() {
         System.out.println("Adding sample data to the database...");
 
         // Add sample students
@@ -53,6 +108,12 @@ public class ManagerServlet extends HttpServlet {
         Student bob = new Student(1002, "Bob Johnson", "bob@example.com");
         studentDAO.save(alice);
         studentDAO.save(bob);
+
+        //Add sample teachers
+        Teacher t1 = new Teacher(2001, "Bobby Conolly", "bobby@example.com", "Information System");
+        Teacher t2 = new Teacher(2002, "Fode Toure", "fode@example.com", "Information System");
+        teacherDAO.save(t1);
+        teacherDAO.save(t2);
 
         // Add sample courses
         Course javaCourse = new Course("CS101", "Introduction to Java", 3, "Dr. Java");
@@ -70,6 +131,7 @@ public class ManagerServlet extends HttpServlet {
 
         System.out.println("Sample data added successfully!");
     }//end addSample
+*/
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -82,9 +144,10 @@ public class ManagerServlet extends HttpServlet {
             return;
         }
 
-        // Load all students and courses from the database
+        // Load all students, courses, teachers from the database
         List<Student> students = studentDAO.findAll();
         List<Course> courses = courseDAO.findAll();
+        List<Teacher> teachers = teacherDAO.findAll();
 
         // For each student, load their registered courses
         for (Student student : students) {
@@ -110,11 +173,13 @@ public class ManagerServlet extends HttpServlet {
         }
         manager.setAllStudents(students);
         manager.setAllCourses(courses);
+        manager.setAllTeachers(teachers);
         session.setAttribute("collegeManager", manager); // Important update the session
 
         // Add data to the request
         request.setAttribute("students", students);
         request.setAttribute("courses", courses);
+        request.setAttribute("teachers", teachers);
         request.setAttribute("enrollmentStats", enrollmentStats);
 
         // Forward to the JSP
@@ -203,6 +268,19 @@ public class ManagerServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/manager?view=register");
             return;
         }
+        else if ("addTeacher".equals(action)) {
+            addTeacher(request, manager);
+            response.sendRedirect(request.getContextPath() + "/manager?view=teachers"); // CAMBIO AQUI
+            return;
+        } else if ("updateTeacher".equals(action)) {
+            updateTeacher(request, manager);
+            response.sendRedirect(request.getContextPath() + "/manager?view=teachers"); // CAMBIO AQUI
+            return;
+        } else if ("deleteTeacher".equals(action)) {
+            deleteTeacher(request);
+            response.sendRedirect(request.getContextPath() + "/manager?view=teachers"); // CAMBIO AQUI
+            return;
+        }
 
 
         // Redirect back to the manager page to see the updated data
@@ -259,19 +337,20 @@ public class ManagerServlet extends HttpServlet {
         String code = request.getParameter("courseCode");
         String title = request.getParameter("courseTitle");
         String creditsStr = request.getParameter("courseCredits");
-        String instructor = request.getParameter("courseInstructor");
+        String teacherIdStr = request.getParameter("teacherId");
         HttpSession session = request.getSession();
 
         if (code == null || code.trim().isEmpty() ||
                 title == null || title.trim().isEmpty() ||
                 creditsStr == null || creditsStr.trim().isEmpty() ||
-                instructor == null || instructor.trim().isEmpty()) {
+                teacherIdStr == null || teacherIdStr.trim().isEmpty()) {
             session.setAttribute("error", "All course fields are required!");
             return;
         }
 
         try {
             int credits = Integer.parseInt(creditsStr);
+            int teacherId = Integer.parseInt(teacherIdStr);
 
             // Check if course code already exists
             if (courseDAO.findByCode(code) != null) {
@@ -280,7 +359,7 @@ public class ManagerServlet extends HttpServlet {
             }
 
             // Create and save the course
-            Course course = new Course(code, title, credits, instructor);
+            Course course = new Course(code, title, credits, teacherId);
             boolean success = courseDAO.save(course);
 
             if (success) {
@@ -380,17 +459,18 @@ public class ManagerServlet extends HttpServlet {
         String code = request.getParameter("editCode");
         String title = request.getParameter("editTitle");
         String creditsStr = request.getParameter("editCredits");
-        String instructor = request.getParameter("editInstructor");
+        String teacherIdStr = request.getParameter("editTeacherId");
         HttpSession session = request.getSession();
 
-        if (code == null || title == null || creditsStr == null || instructor == null ||
-                code.trim().isEmpty() || title.trim().isEmpty() || creditsStr.trim().isEmpty() || instructor.trim().isEmpty()) {
+        if (code == null || title == null || creditsStr == null || teacherIdStr == null ||
+                code.trim().isEmpty() || title.trim().isEmpty() || creditsStr.trim().isEmpty() || teacherIdStr.trim().isEmpty()) {
             session.setAttribute("error", "All fields are required to update the course.");
             return;
         }
 
         try {
             int credits = Integer.parseInt(creditsStr);
+            int teacherId = Integer.parseInt(teacherIdStr);
 
             // Find course
             Course course = courseDAO.findByCode(code);
@@ -399,8 +479,8 @@ public class ManagerServlet extends HttpServlet {
                 return;
             }
 
-            // Create updated course and update it
-            Course updatedCourse = new Course(code, title, credits, instructor);
+            // Update course values
+            Course updatedCourse = new Course(code, title, credits, teacherId);
             boolean success = courseDAO.update(updatedCourse);
 
             if (success) {
@@ -409,9 +489,9 @@ public class ManagerServlet extends HttpServlet {
                 session.setAttribute("error", "Failed to update course.");
             }
         } catch (NumberFormatException e) {
-            session.setAttribute("error", "Credits must be a valid number.");
+            session.setAttribute("error", "Credits and Teacher ID must be valid numbers.");
         }
-    } //end update courses
+    }//end update courses
 
     private void updateStudent(HttpServletRequest request, CollegeManager manager) {
         String idStr = request.getParameter("editId");
@@ -477,5 +557,93 @@ public class ManagerServlet extends HttpServlet {
             session.setAttribute("error", "Invalid student ID.");
         }
     }
+
+    private void addTeacher(HttpServletRequest request, CollegeManager manager) {
+        String name = request.getParameter("teacherName");
+        String email = request.getParameter("teacherEmail");
+        String department = request.getParameter("teacherDepartment");
+        HttpSession session = request.getSession();
+
+        if (name == null || name.trim().isEmpty() ||
+                email == null || email.trim().isEmpty()) {
+            session.setAttribute("error", "Name and email are required for the teacher!");
+            return;
+        }
+
+        // Generate unique ID (like for students)
+        int nextId = 2000;
+        List<Teacher> teachers = teacherDAO.findAll();
+        for (Teacher t : teachers) {
+            if (t.getId() >= nextId) {
+                nextId = t.getId() + 1;
+            }
+        }
+
+        Teacher teacher = new Teacher(nextId, name, email, department);
+        boolean success = teacherDAO.save(teacher);
+
+        if (success) {
+            session.setAttribute("message", "Teacher " + name + " added successfully!");
+        } else {
+            session.setAttribute("error", "Failed to add teacher. Please try again.");
+        }
+    }
+
+    private void updateTeacher(HttpServletRequest request, CollegeManager manager) {
+        String idStr = request.getParameter("editId");
+        String name = request.getParameter("editName");
+        String email = request.getParameter("editEmail");
+        String department = request.getParameter("editDepartment");
+        HttpSession session = request.getSession();
+
+        if (idStr == null || name == null || email == null ||
+                idStr.trim().isEmpty() || name.trim().isEmpty() || email.trim().isEmpty()) {
+            session.setAttribute("error", "All fields are required to update the teacher.");
+            return;
+        }
+
+        try {
+            int id = Integer.parseInt(idStr);
+            Teacher teacher = teacherDAO.findById(id);
+            if (teacher == null) {
+                session.setAttribute("error", "Teacher with ID " + id + " not found.");
+                return;
+            }
+
+            // Update values
+            teacher.setName(name);
+            teacher.setEmail(email);
+            teacher.setDepartment(department);
+
+            boolean success = teacherDAO.update(teacher);
+
+            if (success) {
+                session.setAttribute("message", "Teacher updated successfully.");
+            } else {
+                session.setAttribute("error", "Failed to update teacher.");
+            }
+        } catch (NumberFormatException e) {
+            session.setAttribute("error", "Invalid teacher ID.");
+        }
+    }//update teacher
+
+    private void deleteTeacher(HttpServletRequest request) {
+        String idStr = request.getParameter("teacherId");
+        HttpSession session = request.getSession();
+
+        try {
+            int id = Integer.parseInt(idStr);
+            boolean success = teacherDAO.delete(id);
+
+            if (success) {
+                session.setAttribute("message", "Teacher deleted successfully.");
+            } else {
+                session.setAttribute("error", "Failed to delete teacher.");
+            }
+        } catch (NumberFormatException e) {
+            session.setAttribute("error", "Invalid teacher ID.");
+        }
+    } // end deleteTeacher
+
 
 } //end public servlet

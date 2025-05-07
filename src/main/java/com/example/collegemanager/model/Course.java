@@ -4,13 +4,15 @@ public class Course {
     private String code;
     private String title;
     private int credits;
-    private String instructor;
+    private int teacherId;
+    //private String instructor;
 
-    public Course(String code, String title, int credits, String instructor) {
+    public Course(String code, String title, int credits, int teacherid) {
         this.code = code;
         this.title = title;
         this.credits = credits;
-        this.instructor = instructor;
+        this.teacherId = teacherid;
+        //this.instructor = instructor;
     }
 
     // Getters for our properties
@@ -26,13 +28,21 @@ public class Course {
         return credits;
     }
 
-    public String getInstructor() {
-        return instructor;
+//    public String getInstructor() {
+//        return instructor;
+//    }
+
+    public int getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(int teacherId) {
+        this.teacherId = teacherId;
     }
 
     @Override
     public String toString() {
-        return code + ": " + title + " (" + credits + " credits, taught by " + instructor + ")";
+        return code + ": " + title + " (" + credits + " credits, taught by " + teacherId + ")";
     }
 
     //Methods

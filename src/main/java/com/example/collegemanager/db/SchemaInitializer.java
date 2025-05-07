@@ -25,13 +25,25 @@ public class SchemaInitializer {
             );
             System.out.println("Students table created.");
 
+            // Create teachers table
+            stmt.execute(
+                    "CREATE TABLE IF NOT EXISTS teachers (" +
+                            "  id INT PRIMARY KEY, " +
+                            "  name VARCHAR(100) NOT NULL, " +
+                            "  email VARCHAR(100) NOT NULL UNIQUE, " +
+                            "  department VARCHAR(100)" +
+                            ")"
+            );
+            System.out.println("Teachers table created.");
+
+
             // Create courses table
             stmt.execute(
                     "CREATE TABLE IF NOT EXISTS courses (" +
                             "  code VARCHAR(10) PRIMARY KEY, " +
                             "  title VARCHAR(100) NOT NULL, " +
                             "  credits INT NOT NULL, " +
-                            "  instructor VARCHAR(100) NOT NULL" +
+                            "  teacher_id VARCHAR(100) NOT NULL" +
                             ")"
             );
             System.out.println("Courses table created.");

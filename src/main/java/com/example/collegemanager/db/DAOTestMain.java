@@ -62,8 +62,8 @@ public class DAOTestMain {
         System.out.println("\n===== Testing CourseDAO =====");
 
         // Create test courses
-        Course java = new Course("CS101", "Introduction to Java", 3, "Dr. Java");
-        Course web = new Course("CS201", "Web Development", 4, "Prof. Web");
+        Course java = new Course("CS101", "Introduction to Java", 3, 2001);
+        Course web = new Course("CS201", "Web Development", 4, 2001);
 
         // Save courses
         boolean javaSaved = courseDAO.save(java);

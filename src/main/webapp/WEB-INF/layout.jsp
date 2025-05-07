@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: dptoa
+  User: dptoa/zehna
   Date: 4/21/2025
   Time: 6:22 PM
   To change this template use File | Settings | File Templates.
@@ -69,6 +69,7 @@
     <a href="${pageContext.request.contextPath}/manager?view=dashboard">🏠 Dashboard</a>
     <a href="${pageContext.request.contextPath}/manager?view=courses">📚 Courses</a>
     <a href="${pageContext.request.contextPath}/manager?view=students">👨‍🎓 Students</a>
+    <a href="${pageContext.request.contextPath}/manager?view=teachers">👨‍🏫 Teachers</a>
     <a href="${pageContext.request.contextPath}/manager?view=register">📝 Register</a>
 </nav>
 <main>

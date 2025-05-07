@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: dptoa
+  User: dptoa/zehna
   Date: 4/21/2025
   Time: 6:28 PM
   To change this template use File | Settings | File Templates.
@@ -12,7 +12,6 @@
     request.setAttribute("allStudents", collegeManager != null ? collegeManager.getAllStudents() : null);
     request.setAttribute("allCourses", collegeManager != null ? collegeManager.getAllCourses() : null);
 
-    // Usar solo un mensaje combinando éxito y error
     String flash = (String) session.getAttribute("message");
     if (flash == null) flash = (String) session.getAttribute("error");
     if (flash != null) {

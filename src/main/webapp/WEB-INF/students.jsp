@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: dptoa
+  User: dptoa/zehna
   Date: 4/21/2025
   Time: 6:27 PM
   To change this template use File | Settings | File Templates.
@@ -43,23 +43,29 @@
             <tbody>
             <c:forEach var="student" items="${allStudents}">
                 <tr>
-                    <td><input type="text" name="editId" value="${student.id}" readonly style="width: 60px; font-size: 0.9rem;"></td>
-                    <td><input type="text" name="editName" value="${student.name}" required placeholder="Name" style="font-size: 0.9rem;"></td>
-                    <td><input type="email" name="editEmail" value="${student.email}" required placeholder="Email" style="font-size: 0.9rem;"></td>
-                    <td style="display: flex; gap: 4px;">
-                        <form action="${pageContext.request.contextPath}/manager" method="post" style="display:inline;">
-                            <input type="hidden" name="action" value="updateStudent">
-                            <input type="hidden" name="editId" value="${student.id}">
+                    <form action="${pageContext.request.contextPath}/manager" method="post" style="display: contents;">
+                        <td><input type="text" name="editId" value="${student.id}" readonly style="width: 50px; font-size: 0.85rem;"></td>
+                        <td><input type="text" name="editName" value="${student.name}" required placeholder="Name" style="width: 140px; font-size: 0.85rem;"></td>
+                        <td><input type="email" name="editEmail" value="${student.email}" required placeholder="Email" style="width: 180px; font-size: 0.85rem;"></td>
+                        <td style="white-space: nowrap;">
+                            <!-- Button UPDATE -->
+                            <button type="submit" name="action" value="updateStudent"
+                                    style="font-size: 0.75rem; background-color: #fbc26d; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; margin-right: 5px;">
+                                Update
+                            </button>
+
+                            <!-- Button DELETE -->
+                            <button type="submit" name="action" value="deleteStudent"
+                                    style="font-size: 0.75rem; background-color: #dc3545; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer;">
+                                Delete
+                            </button>
+
+                            <!-- hidden fields -->
+                            <input type="hidden" name="studentId" value="${student.id}">
                             <input type="hidden" name="editName" value="${student.name}">
                             <input type="hidden" name="editEmail" value="${student.email}">
-                            <button type="submit" style="font-size: 0.75rem; background-color: #fbc26d; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer;">Update</button>
-                        </form>
-                        <form action="${pageContext.request.contextPath}/manager" method="post" style="display:inline;">
-                            <input type="hidden" name="action" value="deleteStudent">
-                            <input type="hidden" name="studentId" value="${student.id}">
-                            <button type="submit" style="font-size: 0.75rem; background-color: #dc3545; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer;">Delete</button>
-                        </form>
-                    </td>
+                        </td>
+                    </form>
                 </tr>
             </c:forEach>
             </tbody>

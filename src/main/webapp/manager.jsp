@@ -5,6 +5,8 @@
         viewPage = "courses.jsp";
     } else if ("students".equals(view)) {
         viewPage = "students.jsp";
+    } else if ("teachers".equals(view)) {
+        viewPage = "teachers.jsp";
     } else if ("register".equals(view)) {
         viewPage = "register.jsp";
     } else {

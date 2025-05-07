@@ -9,7 +9,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ed0445e-a487-4dae-af5b-e41f75f75386" name="Changes" comment="" />
+    <list default="true" id="7ed0445e-a487-4dae-af5b-e41f75f75386" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/61c0ff3e-d436-4941-a94c-c757c251b8f1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/61c0ff3e-d436-4941-a94c-c757c251b8f1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/controller/ManagerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/controller/ManagerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/dao/impl/CourseDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/dao/impl/CourseDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/dao/impl/RegistrationDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/dao/impl/RegistrationDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/db/DAOTestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/db/DAOTestMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/db/SchemaInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/db/SchemaInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/model/CollegeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/model/CollegeManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/model/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/model/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/model/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/model/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/courseDetails.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/courseDetails.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/courses.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/courses.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dashboard.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/layout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/layout.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/students.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/students.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/manager.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/manager.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,6 +74,7 @@
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;Application.SchemaInitializer.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;Tomcat Server.Tomcat.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
@@ -63,9 +84,9 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -80,7 +101,7 @@
       <recent name="C:\Users\dptoa\IdeaProjects\CollegeManager\src\main\webapp\WEB-INF" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DbTestMain">
+  <component name="RunManager" selected="Tomcat Server.Tomcat">
     <configuration name="DbTestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.collegemanager.db.DbTestMain" />
       <module name="CollegeManager" />
@@ -95,6 +116,8 @@
       </method>
     </configuration>
     <configuration name="SchemaInitializer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="23" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.example.collegemanager.db.SchemaInitializer" />
       <module name="CollegeManager" />
       <extension name="coverage">
@@ -195,11 +218,22 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.DbTestMain" />
+      <item itemvalue="Application.SchemaInitializer" />
+      <item itemvalue="Tomcat Server.Tomcat" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.SchemaInitializer" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-495700d161d3-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.22562.220" />
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
       </set>
     </attachedChunks>
   </component>
@@ -222,6 +256,7 @@
       <workItem from="1744911330479" duration="265000" />
       <workItem from="1744911620645" duration="6000" />
       <workItem from="1745200368847" duration="33492000" />
+      <workItem from="1746654651793" duration="2701000" />
     </task>
     <servers />
   </component>

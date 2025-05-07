@@ -13,8 +13,8 @@ public class Main {
         Student bob = manager.addStudent("Bob Johnson", "bob@example.com");
 
         // Add some courses
-        Course javaCourse = manager.addCourse("CS101", "Introduction to Java", 3, "Dr. Java");
-        Course webDev = manager.addCourse("CS201", "Web Development", 4, "Prof. Web");
+        Course javaCourse = manager.addCourse("CS101", "Introduction to Java", 3, 2001);
+        Course webDev = manager.addCourse("CS201", "Web Development", 4, 2001);
 
         // Register students for courses
         manager.registerStudentForCourse(alice.getId(), javaCourse.getCode());

@@ -169,7 +169,7 @@
     <schema id="162" parent="2" name="INFORMATION_SCHEMA"/>
     <schema id="163" parent="2" name="PUBLIC">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2025-04-21.03:56:29</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-05-07.18:14:58</LastIntrospectionLocalTimestamp>
     </schema>
     <user id="164" parent="2" name="SA">
       <Admin>1</Admin>
@@ -177,47 +177,58 @@
     <table id="165" parent="163" name="COURSES"/>
     <table id="166" parent="163" name="REGISTRATIONS"/>
     <table id="167" parent="163" name="STUDENTS"/>
-    <column id="168" parent="165" name="CODE">
+    <table id="168" parent="163" name="TEACHERS"/>
+    <column id="169" parent="165" name="CODE">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>CHARACTER VARYING(10)|0s</StoredType>
     </column>
-    <column id="169" parent="165" name="TITLE">
+    <column id="170" parent="165" name="TITLE">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>CHARACTER VARYING(100)|0s</StoredType>
     </column>
-    <column id="170" parent="165" name="CREDITS">
+    <column id="171" parent="165" name="CREDITS">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="171" parent="165" name="INSTRUCTOR">
-      <NotNull>1</NotNull>
+    <column id="172" parent="165" name="TEACHER_ID">
       <Position>4</Position>
-      <StoredType>CHARACTER VARYING(100)|0s</StoredType>
+      <StoredType>INTEGER|0s</StoredType>
     </column>
-    <index id="172" parent="165" name="PRIMARY_KEY_6">
+    <foreign-key id="173" parent="165" name="FK_TEACHER">
+      <ColNames>TEACHER_ID</ColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>restrict</OnUpdate>
+      <RefKeyName>CONSTRAINT_C</RefKeyName>
+      <RefTableName>TEACHERS</RefTableName>
+    </foreign-key>
+    <index id="174" parent="165" name="PRIMARY_KEY_12">
       <ColNames>CODE</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="173" parent="165" name="CONSTRAINT_6">
+    <index id="175" parent="165" name="FK_TEACHER_INDEX_6">
+      <ColNames>TEACHER_ID</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+    </index>
+    <key id="176" parent="165" name="CONSTRAINT_6">
       <ColNames>CODE</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <column id="174" parent="166" name="STUDENT_ID">
+    <column id="177" parent="166" name="STUDENT_ID">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="175" parent="166" name="COURSE_CODE">
+    <column id="178" parent="166" name="COURSE_CODE">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>CHARACTER VARYING(10)|0s</StoredType>
     </column>
-    <foreign-key id="176" parent="166" name="CONSTRAINT_FA">
+    <foreign-key id="179" parent="166" name="CONSTRAINT_FA">
       <ColNames>STUDENT_ID</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <OnDelete>cascade</OnDelete>
@@ -225,7 +236,7 @@
       <RefKeyName>CONSTRAINT_9</RefKeyName>
       <RefTableName>STUDENTS</RefTableName>
     </foreign-key>
-    <foreign-key id="177" parent="166" name="CONSTRAINT_FAB">
+    <foreign-key id="180" parent="166" name="CONSTRAINT_FAB">
       <ColNames>COURSE_CODE</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <OnDelete>cascade</OnDelete>
@@ -233,59 +244,88 @@
       <RefKeyName>CONSTRAINT_6</RefKeyName>
       <RefTableName>COURSES</RefTableName>
     </foreign-key>
-    <index id="178" parent="166" name="PRIMARY_KEY_F">
+    <index id="181" parent="166" name="PRIMARY_KEY_F">
       <ColNames>STUDENT_ID
 COURSE_CODE</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <index id="179" parent="166" name="CONSTRAINT_INDEX_F">
+    <index id="182" parent="166" name="CONSTRAINT_INDEX_F">
       <ColNames>STUDENT_ID</ColNames>
       <NameSurrogate>1</NameSurrogate>
     </index>
-    <index id="180" parent="166" name="CONSTRAINT_INDEX_FA">
+    <index id="183" parent="166" name="CONSTRAINT_INDEX_FA">
       <ColNames>COURSE_CODE</ColNames>
       <NameSurrogate>1</NameSurrogate>
     </index>
-    <key id="181" parent="166" name="CONSTRAINT_F">
+    <key id="184" parent="166" name="CONSTRAINT_F">
       <ColNames>STUDENT_ID
 COURSE_CODE</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <column id="182" parent="167" name="ID">
+    <column id="185" parent="167" name="ID">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="183" parent="167" name="NAME">
+    <column id="186" parent="167" name="NAME">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>CHARACTER VARYING(100)|0s</StoredType>
     </column>
-    <column id="184" parent="167" name="EMAIL">
+    <column id="187" parent="167" name="EMAIL">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>CHARACTER VARYING(100)|0s</StoredType>
     </column>
-    <index id="185" parent="167" name="PRIMARY_KEY_9">
+    <index id="188" parent="167" name="PRIMARY_KEY_9">
       <ColNames>ID</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <index id="186" parent="167" name="CONSTRAINT_INDEX_9">
+    <index id="189" parent="167" name="CONSTRAINT_INDEX_9">
       <ColNames>EMAIL</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="187" parent="167" name="CONSTRAINT_9">
+    <key id="190" parent="167" name="CONSTRAINT_9">
       <ColNames>ID</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <key id="188" parent="167" name="CONSTRAINT_9E">
+    <key id="191" parent="167" name="CONSTRAINT_9E">
       <ColNames>EMAIL</ColNames>
       <NameSurrogate>1</NameSurrogate>
+    </key>
+    <column id="192" parent="168" name="ID">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>INTEGER|0s</StoredType>
+    </column>
+    <column id="193" parent="168" name="NAME">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>CHARACTER VARYING(255)|0s</StoredType>
+    </column>
+    <column id="194" parent="168" name="EMAIL">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>CHARACTER VARYING(255)|0s</StoredType>
+    </column>
+    <column id="195" parent="168" name="DEPARTMENT">
+      <Position>4</Position>
+      <StoredType>CHARACTER VARYING(255)|0s</StoredType>
+    </column>
+    <index id="196" parent="168" name="PRIMARY_KEY_C">
+      <ColNames>ID</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Unique>1</Unique>
+    </index>
+    <key id="197" parent="168" name="CONSTRAINT_C">
+      <ColNames>ID</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
     </key>
   </database-model>
 </dataSource>

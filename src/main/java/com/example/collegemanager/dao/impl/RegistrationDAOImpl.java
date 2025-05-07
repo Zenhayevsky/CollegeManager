@@ -79,9 +79,9 @@ public class RegistrationDAOImpl implements RegistrationDAO {
                 String code = rs.getString("code");
                 String title = rs.getString("title");
                 int credits = rs.getInt("credits");
-                String instructor = rs.getString("instructor");
+                int teacherId = rs.getInt("teacher_id");
 
-                courses.add(new Course(code, title, credits, instructor));
+                courses.add(new Course(code, title, credits, teacherId));
             }
         } catch (SQLException e) {
             System.err.println("Error getting courses for student: " + e.getMessage());

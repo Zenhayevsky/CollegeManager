@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: dptoa
+  User: dptoa/zehna
   Date: 4/21/2025
   Time: 6:26 PM
   To change this template use File | Settings | File Templates.
@@ -13,4 +13,5 @@
 <h2 style="color: #001933;">System Information</h2>
 <p>Total Students: <%= collegeManager.getAllStudents().size() %></p>
 <p>Total Courses: <%= collegeManager.getAllCourses().size() %></p>
+<p>Total Teachers: <%= collegeManager.getAllTeachers().size() %></p>
 

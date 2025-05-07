@@ -23,8 +23,8 @@ public class CourseDAOImpl implements CourseDAO {
             if (rs.next()) {
                 String title = rs.getString("title");
                 int credits = rs.getInt("credits");
-                String instructor = rs.getString("instructor");
-                return new Course(code, title, credits, instructor);
+                int teacher_id = rs.getInt("teacher_id");
+                return new Course(code, title, credits, teacher_id);
             }
             return null;
         } catch (SQLException e) {
@@ -48,8 +48,8 @@ public class CourseDAOImpl implements CourseDAO {
                 String code = rs.getString("code");
                 String title = rs.getString("title");
                 int credits = rs.getInt("credits");
-                String instructor = rs.getString("instructor");
-                courses.add(new Course(code, title, credits, instructor));
+                int teacher_id = rs.getInt("teacher_id");
+                courses.add(new Course(code, title, credits, teacher_id));
             }
         } catch (SQLException e) {
             System.err.println("Error finding all courses: " + e.getMessage());
@@ -75,18 +75,18 @@ public class CourseDAOImpl implements CourseDAO {
             PreparedStatement stmt;
             if (count > 0) {
                 // Update existing course
-                stmt = conn.prepareStatement("UPDATE courses SET title = ?, credits = ?, instructor = ? WHERE code = ?");
+                stmt = conn.prepareStatement("UPDATE courses SET title = ?, credits = ?, teacher_id = ? WHERE code = ?");
                 stmt.setString(1, course.getTitle());
                 stmt.setInt(2, course.getCredits());
-                stmt.setString(3, course.getInstructor());
+                stmt.setInt(3, course.getTeacherId());
                 stmt.setString(4, course.getCode());
             } else {
                 // Insert new course
-                stmt = conn.prepareStatement("INSERT INTO courses (code, title, credits, instructor) VALUES (?, ?, ?, ?)");
+                stmt = conn.prepareStatement("INSERT INTO courses (code, title, credits, teacher_id) VALUES (?, ?, ?, ?)");
                 stmt.setString(1, course.getCode());
                 stmt.setString(2, course.getTitle());
                 stmt.setInt(3, course.getCredits());
-                stmt.setString(4, course.getInstructor());
+                stmt.setInt(4, course.getTeacherId());
             }
 
             int result = stmt.executeUpdate();
@@ -114,12 +114,12 @@ public class CourseDAOImpl implements CourseDAO {
 
     @Override
     public boolean update(Course course) {
-        String sql = "UPDATE courses SET title = ?, credits = ?, instructor = ? WHERE code = ?";
+        String sql = "UPDATE courses SET title = ?, credits = ?, teacher_id = ? WHERE code = ?";
         try (Connection conn = DbUtil.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, course.getTitle());
             stmt.setInt(2, course.getCredits());
-            stmt.setString(3, course.getInstructor());
+            stmt.setInt(3, course.getTeacherId());
             stmt.setString(4, course.getCode());
 
             int rowsAffected = stmt.executeUpdate();

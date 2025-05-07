@@ -7,13 +7,17 @@ import java.util.Map;
 public class CollegeManager {
 
     private List<Student> students;
-    private List<Course> courses;
+     private List<Course> courses;
+    private List<Teacher> teachers;
     private int nextStudentId;
+    private int nextTeacherId;
 
     public CollegeManager() {
         students = new ArrayList<>();
         courses = new ArrayList<>();
+        teachers = new ArrayList<>();
         nextStudentId = 1000; // Start student IDs at 1000
+        nextTeacherId = 1000; // Start teacher IDs at 1000
     }
 
     // Method to add a new student
@@ -23,9 +27,16 @@ public class CollegeManager {
         return student;
     }
 
+    // Method to add a new teacher (NUEVO)
+    public Teacher addTeacher(String name, String email, String department) {
+        Teacher teacher = new Teacher(nextTeacherId++, name, email, department);
+        teachers.add(teacher);
+        return teacher;
+    }
+
     // Method to add a new course
-    public Course addCourse(String code, String title, int credits, String instructor) {
-        Course course = new Course(code, title, credits, instructor);
+    public Course addCourse(String code, String title, int credits, int teacherId) {
+        Course course = new Course(code, title, credits, teacherId);
         courses.add(course);
         return course;
     }
@@ -52,6 +63,16 @@ public class CollegeManager {
         return null;
     }
 
+    // Helper method to find a teacher by ID
+    public Teacher findTeacherById(int id) {
+        for (Teacher teacher : teachers) {
+            if (teacher.getId() == id) {
+                return teacher;
+            }
+        }
+        return null;
+    }
+
     // Helper method to find a course by code
     public Course findCourseByCode(String code) {
         for (Course course : courses) {
@@ -71,12 +92,20 @@ public class CollegeManager {
         return new ArrayList<>(courses);
     }
 
+    public List<Teacher> getAllTeachers() {
+        return new ArrayList<>(teachers);
+    }
+
     public void setAllCourses (List<Course> courses){
         this.courses = courses;
     }
 
     public void setAllStudents(List<Student> students) {
         this.students = students;
+    }
+
+    public void setAllTeachers(List<Teacher> teachers) {
+        this.teachers = teachers;
     }
 
     public Map<String, Integer> getCoursesRegistrationStats() {
