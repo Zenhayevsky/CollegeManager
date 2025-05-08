@@ -80,14 +80,20 @@
                         <td><input type="text" name="editTitle" value="${course.title}" style="width: 140px; font-size: 0.85rem;"></td>
                         <td><input type="number" name="editCredits" value="${course.credits}" style="width: 60px; font-size: 0.85rem;"></td>
                         <td>
-                            <select name="editTeacherId" style="font-size: 0.85rem;">
-                                <c:forEach var="teacher" items="${teachers}">
-                                    <option value="${teacher.id}" <c:if test="${teacher.id == course.teacherId}">selected</c:if>>
-                                            ${teacher.id} - ${teacher.name}
-                                    </option>
-                                </c:forEach>
-                            </select>
+                            <c:forEach var="teacher" items="${teachers}">
+                                <c:if test="${teacher.id == course.teacherId}">
+                                    <c:set var="teacherName" value="${teacher.name}" />
+                                </c:if>
+                            </c:forEach>
+
+                            <input type="text"
+                                   value="${course.teacherId} - ${teacherName}"
+                                   readonly
+                                   style="width: 200px; font-size: 0.85rem;">
+                            <input type="hidden" name="editTeacherId" value="${course.teacherId}">
                         </td>
+
+
                         <td style="white-space: nowrap;">
                             <button type="submit" name="action" value="updateCourse"
                                     style="font-size: 0.75rem; background-color: #fbc26d; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; margin-right: 5px;">
