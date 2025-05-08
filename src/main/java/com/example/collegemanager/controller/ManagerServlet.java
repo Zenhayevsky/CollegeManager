@@ -65,18 +65,53 @@ public class ManagerServlet extends HttpServlet {
 
     private void addSampleCourses() {
         System.out.println("Adding sample courses...");
+
         Course javaCourse = new Course("CS101", "Introduction to Java", 3, 2001);
         Course webDev = new Course("CS201", "Web Development", 4, 2001);
         Course math = new Course("MATH101", "Calculus I", 4, 2003);
-        courseDAO.save(javaCourse);
-        courseDAO.save(webDev);
-        courseDAO.save(math);
 
-        //Add registration
-        registrationDAO.registerStudentForCourse(1001, "CS101");
-        registrationDAO.registerStudentForCourse(1001, "CS201");
-        registrationDAO.registerStudentForCourse(1002, "CS101");
-        registrationDAO.registerStudentForCourse(1002, "MATH101");
+        if (courseDAO.save(javaCourse)) {
+            System.out.println("Saved course CS101 successfully!");
+        } else {
+            System.out.println("Failed to save course CS101!");
+        }
+
+        if (courseDAO.save(webDev)) {
+            System.out.println("Saved course CS201 successfully!");
+        } else {
+            System.out.println("Failed to save course CS201!");
+        }
+
+        if (courseDAO.save(math)) {
+            System.out.println("Saved course MATH101 successfully!");
+        } else {
+            System.out.println("Failed to save course MATH101!");
+        }
+
+        // Add registration
+        if (registrationDAO.registerStudentForCourse(1001, "CS101")) {
+            System.out.println("Registered student 1001 for CS101 successfully!");
+        } else {
+            System.out.println("Failed to register student 1001 for CS101!");
+        }
+
+        if (registrationDAO.registerStudentForCourse(1001, "CS201")) {
+            System.out.println("Registered student 1001 for CS201 successfully!");
+        } else {
+            System.out.println("Failed to register student 1001 for CS201!");
+        }
+
+        if (registrationDAO.registerStudentForCourse(1002, "CS101")) {
+            System.out.println("Registered student 1002 for CS101 successfully!");
+        } else {
+            System.out.println("Failed to register student 1002 for CS101!");
+        }
+
+        if (registrationDAO.registerStudentForCourse(1002, "MATH101")) {
+            System.out.println("Registered student 1002 for MATH101 successfully!");
+        } else {
+            System.out.println("Failed to register student 1002 for MATH101!");
+        }
     }
 
     private void addSampleTeachers() {

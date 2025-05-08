@@ -43,7 +43,8 @@ public class SchemaInitializer {
                             "  code VARCHAR(10) PRIMARY KEY, " +
                             "  title VARCHAR(100) NOT NULL, " +
                             "  credits INT NOT NULL, " +
-                            "  instructor VARCHAR(100) NOT NULL" +
+                            "  teacher_id INT NOT NULL, " +
+                            "  FOREIGN KEY (teacher_id) REFERENCES teachers(id) ON DELETE CASCADE" +
                             ")"
             );
             System.out.println("Courses table created.");

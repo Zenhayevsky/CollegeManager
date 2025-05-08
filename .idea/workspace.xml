@@ -9,27 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ed0445e-a487-4dae-af5b-e41f75f75386" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/61c0ff3e-d436-4941-a94c-c757c251b8f1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/61c0ff3e-d436-4941-a94c-c757c251b8f1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/controller/ManagerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/controller/ManagerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/dao/impl/CourseDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/dao/impl/CourseDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/dao/impl/RegistrationDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/dao/impl/RegistrationDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/db/DAOTestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/db/DAOTestMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/db/SchemaInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/db/SchemaInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/model/CollegeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/model/CollegeManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/model/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/model/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/model/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/model/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/courseDetails.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/courseDetails.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/courses.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/courses.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dashboard.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/layout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/layout.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/students.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/students.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/manager.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/manager.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="7ed0445e-a487-4dae-af5b-e41f75f75386" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,13 +18,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
         <option value="Jsp File" />
       </list>
     </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -74,9 +52,7 @@
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;Application.SchemaInitializer.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;Tomcat Server.Tomcat.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/dptoa/IdeaProjects/InvMana&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -84,7 +60,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -116,8 +92,6 @@
       </method>
     </configuration>
     <configuration name="SchemaInitializer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="23" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.example.collegemanager.db.SchemaInitializer" />
       <module name="CollegeManager" />
       <extension name="coverage">
@@ -131,12 +105,12 @@
       </method>
     </configuration>
     <configuration name="Tomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.39" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/diana/manager" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/dianazenha/manager" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="CollegeManager:war exploded">
           <settings>
-            <option name="CONTEXT_PATH" value="diana" />
+            <option name="CONTEXT_PATH" value="dianazenha" />
           </settings>
         </artifact>
       </deployment>
@@ -226,6 +200,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.SchemaInitializer" />
+        <item itemvalue="Application.DbTestMain" />
       </list>
     </recent_temporary>
   </component>
@@ -256,7 +231,14 @@
       <workItem from="1744911330479" duration="265000" />
       <workItem from="1744911620645" duration="6000" />
       <workItem from="1745200368847" duration="33492000" />
-      <workItem from="1746654651793" duration="2701000" />
+      <workItem from="1745429367090" duration="14000" />
+      <workItem from="1745461980608" duration="622000" />
+      <workItem from="1746015702380" duration="1762000" />
+      <workItem from="1746584785244" duration="26069000" />
+      <workItem from="1746654528612" duration="5034000" />
+      <workItem from="1746661599837" duration="1346000" />
+      <workItem from="1746662972495" duration="202000" />
+      <workItem from="1746663202983" duration="1075000" />
     </task>
     <servers />
   </component>
@@ -272,5 +254,16 @@
     <option featureType="dependencySupport" implementationName="java:jakarta.ws.rs:jakarta.ws.rs-api" />
     <option featureType="dependencySupport" implementationName="maven-packaging:war" />
     <option featureType="dependencySupport" implementationName="java:jakarta.faces:jakarta.faces-api" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/webapp/index.jsp</url>
+          <line>4</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
