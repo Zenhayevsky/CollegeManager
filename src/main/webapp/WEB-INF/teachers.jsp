@@ -10,6 +10,15 @@
 <%
   CollegeManager collegeManager = (CollegeManager) session.getAttribute("collegeManager");
   request.setAttribute("allTeachers", collegeManager != null ? collegeManager.getAllTeachers() : null);
+
+  String flash = (String) session.getAttribute("message");
+  if (flash == null) flash = (String) session.getAttribute("error");
+  if (flash != null) {
+    request.setAttribute("flash", flash);
+    session.removeAttribute("message");
+    session.removeAttribute("error");
+  }
+
 %>
 <h2 style="color: #001933;">Manage Teachers</h2>
 <form action="${pageContext.request.contextPath}/manager" method="post" style="margin-bottom: 2rem; font-size: 0.85rem; max-width: 400px;">
@@ -28,6 +37,13 @@
   </div>
   <button type="submit" style="font-size: 0.85rem; background-color: #007BFF; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;">Add Teacher</button>
 </form>
+
+<!-- Flash Message -->
+<c:if test="${not empty flash}">
+  <div style="color: #333; background-color: #fff8cc; border: 1px solid #ffd700; padding: 8px; margin-bottom: 1rem; border-radius: 4px;">
+      ${flash}
+  </div>
+</c:if>
 
 <h2 style="color: #001933;">Registered Teachers - <%= collegeManager.getAllTeachers().size() %></h2>
 <c:choose>
