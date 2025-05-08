@@ -10,7 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ed0445e-a487-4dae-af5b-e41f75f75386" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/courses.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/courses.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/controller/ManagerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/collegemanager/controller/ManagerServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,7 +246,7 @@
       <workItem from="1746661599837" duration="1346000" />
       <workItem from="1746662972495" duration="202000" />
       <workItem from="1746663202983" duration="1075000" />
-      <workItem from="1746665096008" duration="3476000" />
+      <workItem from="1746665096008" duration="4940000" />
     </task>
     <servers />
   </component>

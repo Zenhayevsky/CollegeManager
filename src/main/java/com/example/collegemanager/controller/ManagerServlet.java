@@ -668,14 +668,25 @@ public class ManagerServlet extends HttpServlet {
 
         try {
             int id = Integer.parseInt(idStr);
-            boolean success = teacherDAO.delete(id);
 
-            if (success) {
-                session.setAttribute("message", "Teacher deleted successfully.");
+            CollegeManager collegeManager = (CollegeManager) session.getAttribute("collegeManager");
+            boolean hasCourses = collegeManager.getAllCourses().stream()
+                    .anyMatch(course -> course.getTeacherId() == id);  // Comparando int com int
+
+            if (hasCourses) {
+                // Se o professor tem cursos associados, não permitir a exclusão
+                session.setAttribute("error", "Cannot delete teacher because he/her has courses assigned.");
             } else {
-                session.setAttribute("error", "Failed to delete teacher.");
+                // Caso contrário, excluir o professor
+                boolean success = teacherDAO.delete(id);  // Substitua pelo método correto de exclusão do professor
+                if (success) {
+                    session.setAttribute("message", "Teacher deleted successfully.");
+                } else {
+                    session.setAttribute("error", "Failed to delete teacher.");
+                }
             }
         } catch (NumberFormatException e) {
+            // Caso o ID seja inválido
             session.setAttribute("error", "Invalid teacher ID.");
         }
     } // end deleteTeacher
