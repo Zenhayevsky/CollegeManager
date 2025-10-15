@@ -55,6 +55,7 @@ public class ManagerServlet extends HttpServlet {
 
     }
 
+
     private void addSampleStudents() {
         System.out.println("Adding sample students...");
         Student alice = new Student(1001, "Alice Smith", "alice@example.com");
